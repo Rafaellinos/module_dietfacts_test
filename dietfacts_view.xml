@@ -18,7 +18,7 @@
             <field name="inherit_id" ref="product.product_template_only_form_view"/>
             <field name="model">product.template</field>
             <field name="arch" type="xml">
-                <field name="standard_price" position="after">
+                <field name="list_price" position="after">
                     <field name="calories"/>
                     <field name="serving_size"/>
                     <field name="last_updated"/>
