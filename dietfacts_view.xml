@@ -8,6 +8,8 @@
             <field name="arch" type="xml">
                 <field name="categ_id" position="after">
                     <field name="calories"/>
+                    <field name="serving_size"/>
+                    <field name="last_updated"/>
                 </field>
             </field>
         </record>
