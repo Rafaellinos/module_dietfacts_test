@@ -30,7 +30,7 @@ class Dietfacts_res_users_mealitem(models.Model):
     _name = 'res.users.mealitem'
 
     meal_id = fields.Many2one(
-        comodel_name='res.users.meal'
+        comodel_name='res.users.meal',
         string=u'Meal ID')
     item_id = fields.Many2one(
         comodel_name='product.template',
