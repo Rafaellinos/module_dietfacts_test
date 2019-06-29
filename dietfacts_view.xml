@@ -38,7 +38,7 @@
             <field name="view_type">form</field>
             <field name="view_id" ref="product.product_template_tree_view"/>
             <field name="context">{"search_default_filter_to_sell":1}</field>
-            <field name="domain">[('dietitem','=',True)]</field>
+            <field name="domain">[('is_diet_item','=',True)]</field>
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create">
                     Click to define a new product.
