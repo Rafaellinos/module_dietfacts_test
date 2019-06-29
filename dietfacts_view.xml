@@ -2,6 +2,7 @@
 
 <openerp>
     <data>
+    <!--Tree view-->
         <record id= "dietfacts_product_template_tree_view" model = "ir.ui.view">
             <field name="inherit_id" ref="product.product_template_tree_view"/>
             <field name="model">product.template</field>
@@ -13,7 +14,7 @@
                 </field>
             </field>
         </record>
-
+    <!--Form view-->
         <record id= "dietfacts_product_template_form_view" model = "ir.ui.view">
             <field name="inherit_id" ref="product.product_template_only_form_view"/>
             <field name="model">product.template</field>
@@ -25,6 +26,5 @@
                 </field>
             </field>
         </record>
-
     </data>
 </openerp>
