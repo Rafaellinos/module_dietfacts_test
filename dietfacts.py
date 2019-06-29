@@ -59,8 +59,7 @@ class Dietfacts_res_users_mealitem(models.Model):
         string=u'Item ID')
     servings = fields.Float(
         string=u'Servings',
-        default=1,
-        compute="_cant_less_than_zero")
+        default=1)
     calories = fields.Integer(
         related='item_id.calories',
         string=u'Calories Serving',
