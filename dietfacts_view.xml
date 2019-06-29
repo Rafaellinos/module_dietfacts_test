@@ -61,8 +61,8 @@
                                 <field name="__last_update" readonly="1"/>
                                 <field name="item_ids">
                                     <tree>
-                                        <field="item_id"/>
-                                        <field="servings"/>
+                                        <field name="item_id"/>
+                                        <field name="servings"/>
                                     </tree>
                                 </field>
                             </group>
