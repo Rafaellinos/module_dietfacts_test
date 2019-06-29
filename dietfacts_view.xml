@@ -61,8 +61,6 @@
                                         <field name="servings"/>
                                     </tree>
                                 </field>
-                            </group>
-                            <group col="2">
                                 <field name="__last_update" readonly="1"/>
                                 <field name="notes"/>
                             </group>
