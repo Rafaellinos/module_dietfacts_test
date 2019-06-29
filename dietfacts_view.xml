@@ -16,7 +16,7 @@
         </record>
 
         <record id= "meal_res_user_meal_tree_view" model = "ir.ui.view">
-            <field name="model">res.user.meal</field>
+            <field name="model">res.users.meal</field>
             <field name="arch" type="xml">
                 <tree>
                     <field name="name"/>
@@ -44,7 +44,7 @@
         </record>
 
         <record id= "meal_res_user_meal_tree_view" model = "ir.ui.view">
-            <field name="model">res.user.meal</field>
+            <field name="model">res.users.meal</field>
             <field name="arch" type="xml">
                 <form>
                     <field name="name"/>
