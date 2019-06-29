@@ -51,20 +51,20 @@
                 <form>
                     <sheet>
                         <group>
-                            <group>
+                            <group string="Meal Information">
                                 <field name="name"/>
                                 <field name="meal_date"/>
                                 <field name="user_id"/>
-                            </group>
-                            <group>
-                                <field name="notes"/>
-                                <field name="__last_update" readonly="1"/>
                                 <field name="item_ids">
                                     <tree>
                                         <field name="item_id"/>
                                         <field name="servings"/>
                                     </tree>
                                 </field>
+                            </group>
+                            <group>
+                                <field name="__last_update" readonly="1"/>
+                                <field name="notes"/>
                             </group>
                         </group>
                     </sheet>
