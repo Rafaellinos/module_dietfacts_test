@@ -84,7 +84,7 @@
             <field name="res_model">res.users.meal</field> <!--Model created on dietfacts.py-->
             <field name="view_mode">tree,kanban,form</field>
             <field name="view_type">form</field>
-            <field name="view_id" ref="product.product_template_tree_view"/>
+            <field name="view_id" ref="dietfacts_meal_tree_view"/>
             <field name="context">{"search_default_filter_to_sell":1, "default_is_diet_item": True}</field>
             <field name="domain">[('categ_id.name','=','Diet Items')]</field>
             <!--<field name="domain">[('is_diet_item','=',True)]</field>-->
