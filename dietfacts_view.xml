@@ -47,11 +47,13 @@
             <field name="model">res.users.meal</field>
             <field name="arch" type="xml">
                 <form>
-                    <field name="name"/>
-                    <field name="meal_date"/>
-                    <field name="user_id"/>
-                    <field name="notes"/>
-                    <field name="__last_update" readonly="1"/>
+                    <sheet>
+                        <field name="name"/>
+                        <field name="meal_date"/>
+                        <field name="user_id"/>
+                        <field name="notes"/>
+                        <field name="__last_update" readonly="1"/>
+                    </sheet>
                 </form>
             </field>
         </record>
