@@ -57,7 +57,7 @@
                             <group>
                                 <field name="notes"/>
                                 <field name="__last_update" readonly="1"/>
-                                <field name="item_ids">
+                                <field name="item_ids"/>
                             </group>
                         </group>
                     </sheet>
