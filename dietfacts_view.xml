@@ -51,7 +51,7 @@
                 <form>
                     <sheet>
                         <group>
-                            <group string="Meal Information">
+                            <group col="1" string="Meal Information">
                                 <field name="name"/>
                                 <field name="meal_date"/>
                                 <field name="user_id"/>
@@ -62,7 +62,7 @@
                                     </tree>
                                 </field>
                             </group>
-                            <group>
+                            <group col="2">
                                 <field name="__last_update" readonly="1"/>
                                 <field name="notes"/>
                             </group>
