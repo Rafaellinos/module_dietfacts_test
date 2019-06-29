@@ -15,6 +15,18 @@
             </field>
         </record>
 
+        <record id= "dietfacts_meal_tree_view" model = "ir.ui.view">
+            <field name="model">res.users.meal</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="meal_date"/>
+                    <field name="user_id"/>
+                    <field name="notes"/>
+                </tree>
+            </field>
+        </record>
+
     <!--Form view-->
         <record id= "dietfacts_product_template_form_view" model = "ir.ui.view">
             <field name="inherit_id" ref="product.product_template_only_form_view"/>
@@ -28,6 +40,21 @@
                 </field>
             </field>
         </record>
+
+        <record id= "dietfacts_meal_form_view" model = "ir.ui.view">
+            <field name="model">res.users.meal</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <field name="name"/>
+                        <field name="meal_date"/>
+                        <field name="user_id"/>
+                        <field name="notes"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
 
     <!--Create the record with information of the action below-->
         <record id="product.product_template_action_dietfacts" model="ir.actions.act_window">
@@ -51,12 +78,31 @@
             </field>
         </record>
 
+        <record id="product.action_dietfacts" model="ir.actions.act_window">
+            <field name="name">Meals</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.users.meal</field> <!--Model created on dietfacts.py-->
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="product.product_template_tree_view"/>
+            <field name="context">{"search_default_filter_to_sell":1, "default_is_diet_item": True}</field>
+            <field name="domain">[('categ_id.name','=','Diet Items')]</field>
+            <!--<field name="domain">[('is_diet_item','=',True)]</field>-->
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to define a new meal
+                </p>
+            </field>
+        </record>
 
     <!--Create Menu Action-->
         <menuitem action="product.product_template_action_dietfacts"
             id="menu_product_template_action_dietfacts"
             parent="base.menu_sales" sequence="14"/>
 
+        <menuitem action="meal.action_dietfacts"
+            id="menu_meal_action_dietfacts"
+            parent="base.menu_sales" sequence="15"/>
         
 
     </data>
