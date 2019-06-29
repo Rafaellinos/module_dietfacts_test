@@ -28,7 +28,7 @@ class Dietfacts_res_users_meal(models.Model):
     @api.depends('item_ids','item_ids.servings','serving') #When field change, recalculate
 
     def _cant_less_than_zero(self):
-        if self.item_ids.serving < 0:
+        if self.item_ids.serving <= 0:
             raise Warning('You can not serving less than 1')
 
     def _calccalories(self):
