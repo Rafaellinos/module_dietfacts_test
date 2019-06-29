@@ -12,6 +12,8 @@ class Dietfacts_product_template(models.Model):
     last_updated = fields.Date(string=u'Last Update')
     is_diet_item = fields.Boolean(string=u'Diet Item')
 
+# Create new model to keep the meal saved
+
 class Dietfacts_res_users_meal(models.Model):
     _name = 'res.users.meal'
 
@@ -26,6 +28,8 @@ class Dietfacts_res_users_meal(models.Model):
         string='Meal Users')
     notes = fields.Text(string=u'Meal Notes')
 
+# Create a model fot the field item_ids, that will contains the products list
+
 class Dietfacts_res_users_mealitem(models.Model):
     _name = 'res.users.mealitem'
 
@@ -36,4 +40,9 @@ class Dietfacts_res_users_mealitem(models.Model):
         comodel_name='product.template',
         string=u'Item ID')
     servings = fields.Float(string=u'Servings')
+    calories = fields.Integer(
+        related='item_id.calories',
+        string=u'Calories Serving',
+        store=True,
+        readonly=True)
     notes = fields.Text(string=u'Meal item notes')
