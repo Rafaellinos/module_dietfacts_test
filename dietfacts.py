@@ -23,6 +23,17 @@ class Dietfacts_res_users_meal(models.Model):
         comodel_name='res.users.mealitem',
         inverse_name='meal_id',
         string=u'Items List')
+
+    def _calccalories(self):
+        currentcalories = 0
+        for mealitem in self.item_ids:
+            currentcalories = currentcalories + mealitem.item_id.calories
+        self.totalcalories = currentcalories
+
+    totalcalories = fields.Integer(
+        string=u'Total Meal Calories',
+        store=True,
+        compute="_calccalories")
     user_id = fields.Many2one(
         comodel_name='res.users',
         string='Meal Users')
@@ -39,7 +50,9 @@ class Dietfacts_res_users_mealitem(models.Model):
     item_id = fields.Many2one(
         comodel_name='product.template',
         string=u'Item ID')
-    servings = fields.Float(string=u'Servings')
+    servings = fields.Float(
+        string=u'Servings',
+        default=1)
     calories = fields.Integer(
         related='item_id.calories',
         string=u'Calories Serving',
