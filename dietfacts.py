@@ -1,5 +1,5 @@
 # Dietfacts application
-from openerp import models, fields
+from openerp import models, fields, api
 
 # Extend product.template model with calories
 
@@ -23,6 +23,9 @@ class Dietfacts_res_users_meal(models.Model):
         comodel_name='res.users.mealitem',
         inverse_name='meal_id',
         string=u'Items List')
+
+    @api.one # Tell Odoo when to call the method
+    @api.depends('item_ids','item_ids.servings') #When field change, recalculate
 
     def _calccalories(self):
         currentcalories = 0
