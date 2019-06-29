@@ -53,9 +53,18 @@ class Dietfacts_res_users_mealitem(models.Model):
     item_id = fields.Many2one(
         comodel_name='product.template',
         string=u'Item ID')
+
+    @api.one
+    @api.depends('servings')
+    
+    def _cant_less_than_zero(self):
+        if self.servings < 0:
+            raise Warning('You can not serving less than 1')
+    
     servings = fields.Float(
         string=u'Servings',
-        default=1)
+        default=1,
+        compute="_cant_less_than_zero")
     calories = fields.Integer(
         related='item_id.calories',
         string=u'Calories Serving',
