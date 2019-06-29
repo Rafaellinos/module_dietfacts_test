@@ -17,10 +17,23 @@ class Dietfacts_res_users_meal(models.Model):
 
     name = fields.Char(string=u'Meal Name')
     meal_date = fields.Datetime(string=u'Menu Date')
-    #item_ids = fields.One2many(
-    #    comodel_name='',
-    #    string=u'Items List')
+    item_ids = fields.One2many(
+        comodel_name='res.users.mealitem',
+        inverse_name='meal_id',
+        string=u'Items List')
     user_id = fields.Many2one(
         comodel_name='res.users',
         string='Meal Users')
     notes = fields.Text(string=u'Meal Notes')
+
+class Dietfacts_res_users_mealitem(models.Model):
+    _name = 'res.users.mealitem'
+
+    meal_id = fields.Many2one(
+        comodel_name='res.users.meal'
+        string=u'Meal ID')
+    item_id = fields.Many2one(
+        comodel_name='product.template',
+        string=u'Item ID')
+    servings = fields.Float(string=u'Servings')
+    notes = fields.Text(string=u'Meal item notes')
