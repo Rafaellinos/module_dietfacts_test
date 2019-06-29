@@ -78,7 +78,7 @@
             </field>
         </record>
 
-        <record id="meal.action_dietfacts" model="ir.actions.act_window">
+        <record id="meal_action_dietfacts" model="ir.actions.act_window">
             <field name="name">Meals</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">res.users.meal</field> <!--Model created on dietfacts.py-->
@@ -100,7 +100,7 @@
             id="menu_product_template_action_dietfacts"
             parent="base.menu_sales" sequence="14"/>
 
-        <menuitem action="meal.action_dietfacts"
+        <menuitem action="meal_action_dietfacts"
             id="menu_meal_action_dietfacts"
             parent="base.menu_sales" sequence="15"/>
         
