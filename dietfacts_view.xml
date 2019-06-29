@@ -15,6 +15,20 @@
             </field>
         </record>
 
+        <record id= "meal_res_user_meal_tree_view" model = "ir.ui.view">
+            <field name="model">res.user.meal</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="meal_date"/>
+                    <field name="user_id"/>
+                    <field name="notes"/>
+                    <field name="__last_update"/>
+                </tree>
+            </field>
+        </record>
+
+
     <!--Form view-->
         <record id= "dietfacts_product_template_form_view" model = "ir.ui.view">
             <field name="inherit_id" ref="product.product_template_only_form_view"/>
@@ -28,6 +42,20 @@
                 </field>
             </field>
         </record>
+
+        <record id= "meal_res_user_meal_tree_view" model = "ir.ui.view">
+            <field name="model">res.user.meal</field>
+            <field name="arch" type="xml">
+                <form>
+                    <field name="name"/>
+                    <field name="meal_date"/>
+                    <field name="user_id"/>
+                    <field name="notes"/>
+                    <field name="__last_update" readonly="1"/>
+                </form>
+            </field>
+        </record>
+
 
     <!--Create the record with information of the action below-->
         <record id="product.product_template_action_dietfacts" model="ir.actions.act_window">
@@ -57,6 +85,7 @@
             <field name="res_model">res.users.meal</field> <!--Model created on dietfacts.py-->
             <field name="view_mode">tree,form</field>
             <field name="view_type">form</field>
+            <field name="view_id" ref="meal_res_user_meal_tree_view"/>
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create">
                     Click to define a new meal
