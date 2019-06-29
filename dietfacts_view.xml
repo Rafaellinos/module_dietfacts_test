@@ -43,7 +43,7 @@
             </field>
         </record>
 
-        <record id= "meal_res_user_meal_tree_view" model = "ir.ui.view">
+        <record id= "meal_res_user_meal_form_view" model = "ir.ui.view">
             <field name="model">res.users.meal</field>
             <field name="arch" type="xml">
                 <form>
@@ -81,16 +81,27 @@
 
         <record id="meal_action_dietfacts" model="ir.actions.act_window">
             <field name="name">Meals</field>
+            <field eval="1" name="sequence"/>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">res.users.meal</field> <!--Model created on dietfacts.py-->
-            <field name="view_mode">tree,form</field>
-            <field name="view_type">form</field>
+            <field name="view_mode">tree</field>
+            <field name="view_type">tree</field>
             <field name="view_id" ref="meal_res_user_meal_tree_view"/>
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create">
                     Click to define a new meal
                 </p>
             </field>
+        </record>
+
+         <record id="meal_action_dietfacts" model="ir.actions.act_window">
+            <field name="name">Meals</field>
+            <field eval="2" name="sequence"/>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.users.meal</field> <!--Model created on dietfacts.py-->
+            <field name="view_mode">form</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="meal_res_user_meal_form_view"/>
         </record>
 
     <!--Create Menu Action-->
