@@ -24,7 +24,7 @@
                     <field name="calories"/>
                     <field name="serving_size"/>
                     <field name="last_updated"/>
-                    <field name="is_diet_item">
+                    <field name="is_diet_item"/>
                 </field>
             </field>
         </record>
