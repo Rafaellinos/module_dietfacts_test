@@ -87,5 +87,9 @@ class Dietfacts_product_template_nutrient(models.Model):
     product_id = fields.Many2one(
         comodel_name='product.template',
         string=u'ID do Produto')
+    uom = fields.Char(
+        related='nutrient_id.uom_id.name', 
+        string=u'Uom'
+        readonly=True)
     value = fields.Float(string=u'Nutrient Value')
     dailypercent = fields.Float(string=u'Daily Recommended Value')
