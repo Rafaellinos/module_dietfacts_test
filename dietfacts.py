@@ -66,7 +66,7 @@ class Dietfacts_res_users_mealitem(models.Model):
 # Model to products nutrients uom
 
 class Dietfacts_product_nutrient(models.Model):
-    _name = 'product_nutrient'
+    _name = 'product.nutrient'
     
     name = fields.Char(string=u'Nutrient Name')
     uom_id = fields.Many2one(
