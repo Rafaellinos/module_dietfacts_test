@@ -4,6 +4,6 @@
     'description' : 'Adds nutricition infromation to produtcs',
     'author' : "Rafael Lino, https://rafaellinos.github.io/rafaelino.github.io/", 
     'depends' : ['sale'],
-    'data' : ['dietfacts_view.xml'],
+    'data' : ['dietfacts_view.xml','security/ir.model.access.csv'],
     'installable' : True,
 }
