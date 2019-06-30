@@ -25,11 +25,7 @@ class Dietfacts_res_users_meal(models.Model):
         string=u'Items List')
 
     @api.one # Tell Odoo when to call the method
-    @api.depends('item_ids','item_ids.servings','serving') #When field change, recalculate
-
-    def _cant_less_than_zero(self):
-        if self.item_ids.serving <= 0:
-            raise Warning('You can not serving less than 1')
+    @api.depends('item_ids','item_ids.servings') #When field change, recalculate
 
     def _calccalories(self):
         currentcalories = 0
