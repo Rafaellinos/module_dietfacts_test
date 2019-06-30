@@ -11,6 +11,10 @@ class Dietfacts_product_template(models.Model):
     serving_size = fields.Float(string=u'Serving Size')
     last_updated = fields.Date(string=u'Last Update')
     is_diet_item = fields.Boolean(string=u'Diet Item')
+    nutrient_ids = fields.One2many(
+        comodel_name='product.template.nutrient',
+        inverse_name='product_id',
+        string=u'Nutrients')
 
 # Create new model to keep the meal saved
 
