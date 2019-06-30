@@ -62,3 +62,26 @@ class Dietfacts_res_users_mealitem(models.Model):
         store=True,
         readonly=True)
     notes = fields.Text(string=u'Meal item notes')
+
+# Model to products nutrients uom
+
+class Dietfacts_product_nutrient(models.Model):
+    _name = 'product_nutrient'
+    
+    name = fields.Char(string=u'Nutrient Name')
+    uom_id = fields.Many2one(
+        comodel_name='product.uom',
+        string=u'Unit of Mesure')
+    description = fields.Text(string=u'Description')
+
+class Dietfacts_product_template_nutrient(models.Model):
+    _name = 'product.template.nutrient'
+
+    nutrient_id = fields.Many2one(
+        comodel_name='product.nutrient', 
+        string=u'Product Nutrient')
+    product_id = fields.Many2one(
+        comodel_name='product.template',
+        string=u'ID do Produto')
+    value = fields.Float(string=u'Nutrient Value')
+    dailypercent = fields.Float(string=u'Daily Recommended Value')
