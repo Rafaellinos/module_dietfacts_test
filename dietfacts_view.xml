@@ -85,8 +85,8 @@
             </field>
         </record>
 
-        <record id= "meal_res_user_meal_form_view" model = "ir.ui.view">
-            <field name="model">res.users.meal</field>
+        <record id= "nutrient_product_nutrient_form_view" model = "ir.ui.view">
+            <field name="model">product.nutrient</field>
             <field name="view_type">form</field>
             <field name="arch" type="xml">
                 <form>
