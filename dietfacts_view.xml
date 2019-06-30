@@ -64,7 +64,12 @@
             <field name="arch" type="xml">
                 <page name="sales" position="after">
                     <page name="nutrients" string="Nutrients">
-                        <field name=""/>
+                        <field name="nutrient_ids"/>
+                        <tree editable="bottom">
+                            <field name="nutrient_id"/>
+                            <field name="value"/>
+                            <field name="dailypercent"/>
+                        </tree>
                     </page>
                 </page>
             </field>
