@@ -64,7 +64,7 @@
             <field name="arch" type="xml">
                 <page name="sales" position="after">
                     <page name="nutrients" string="Nutrients">
-                        <field name="nutrient_ids">
+                        <field name="nutrient_ids" widget="one2many_list">
                             <tree editable="bottom">
                                 <field name="nutrient_id"/>
                                 <field name="value"/>
