@@ -20,8 +20,16 @@ class Dietfacts_product_template(models.Model):
     @api.depends('nutrient_ids','nutrient_ids.value','nutrition_score')
     def _cal_score(self):
         currentscore = 0
+        sodium = env['product.nutrien'].search([('name','=','Sodium')], limit=1)
+        protein = env['product.nutrien'].search([('name','=','Protein')], limit=1)
+        
         for nutrient in self.nutrient_ids:
-            currentscore = currentscore + nutrient.value
+            if nutrient.nutrient_id == sodium.id:
+                currentscore = currentscore + (nutrient.value * 5)
+            elif nutrient.nutrient_id == protein.id:
+                currentscore = currentscore + (nutrient.value / 5)
+            else:
+                currentscore = currentscore + nutrient.value
         self.nutrition_score = currentscore
          
 
