@@ -49,6 +49,14 @@ class Dietfacts_res_users_meal(models.Model):
         comodel_name='res.users.mealitem',
         inverse_name='meal_id',
         string=u'Items List')
+    largemeal = fields.Boolean(string=u'Large Meal')
+
+    @api.onchange('totalcalories')
+    def check_totalcalories(self):
+        if self.totalcalories > 500:
+            self.largemeal = True
+        else:
+            self.largemeal = False
 
     @api.one # Tell Odoo when to call the method
     @api.depends('item_ids','item_ids.servings') #When field change, recalculate
