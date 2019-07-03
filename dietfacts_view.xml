@@ -11,6 +11,7 @@
                     <field name="calories"/>
                     <field name="serving_size"/>
                     <field name="last_updated"/>
+                    <field name="nutrition_score"/>
                 </field>
             </field>
         </record>
@@ -50,6 +51,7 @@
                     <field name="serving_size"/>
                     <field name="last_updated"/>
                     <field name="is_diet_item"/>
+                    <field name="nutrition_score"/>
                 </field>
             </field>
         </record>
