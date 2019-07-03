@@ -16,6 +16,20 @@ class Dietfacts_product_template(models.Model):
         inverse_name='product_id',
         string=u'Nutrients')
 
+    @api.one
+    @api.depends('nutrient_ids','nutrient_ids.value','nutrition_score')
+    def _cal_score(self):
+        currentscore = 0
+        for nutrient in self.nutrient_ids:
+            currentscore = currentscore + nutrient.value
+        self.nutrition_score = currentscore
+         
+
+    nutrition_score = fields.Float(
+        string=u'Score',
+        store=True,
+        compute='_cal_score')
+
 # Create new model to keep the meal saved
 
 class Dietfacts_res_users_meal(models.Model):
