@@ -23,6 +23,7 @@ class Dietfacts_product_template(models.Model):
         sodium = self.env['product.nutrient'].search([('name','=','Sodium')], limit=1).id
         protein = self.env['product.nutrient'].search([('name','=','Protein')], limit=1).id
 
+        raise Warning(sodium,protein)
         for nutrient in self.nutrient_ids:
             if nutrient.nutrient_id == sodium:
                 currentscore = currentscore + (nutrient.value * 5)
