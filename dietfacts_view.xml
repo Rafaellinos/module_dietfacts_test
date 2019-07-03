@@ -201,7 +201,7 @@
             </t>
         </template>
 
-        <report id="dietfacts_product model="product.template"
+        <report id="dietfacts_product" model="product.template"
             string="Nutrition Products"
             report_type="qweb-pdf"
             name="product.nutrition"
