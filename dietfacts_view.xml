@@ -95,6 +95,7 @@
                                     </tree>
                                 </field>
                                 <field name="totalcalories"/>
+                                <field name="largemeal"/>
                                 <field name="__last_update" readonly="1"/>
                                 <field name="notes"/>
                             </group>
