@@ -15,6 +15,12 @@ common = xmlrpclib.ServerProxy( '%s/xmlrpc/2/common' % server)
 
 uid = common.authenticate(database, user, pwd, {})
 
-print (uid)
+#print (uid) #should return 1
+
+OdooApi = xmlrpclib.ServerProxy('%s/xmlrpc/2/object' % server)
+
+product_count = OdooApi.execute_kw(database, uid, pwd, 'product.template', 'search_count',[[]])
+
+print product_count
 
 
