@@ -19,8 +19,13 @@ uid = common.authenticate(database, user, pwd, {})
 
 OdooApi = xmlrpclib.ServerProxy('%s/xmlrpc/2/object' % server)
 
-product_count = OdooApi.execute_kw(database, uid, pwd, 'product.template', 'search_count',[[]])
+#filter = [[('categ_id.name','=','Diet Items')]]
 
-print product_count
+# var         | object | method   | base    |auth| pass  |model            | method
+#product_count = OdooApi.execute_kw(database, uid, pwd, 'product.template', 'search_count', filter)
 
+filter2 = [[('largemeal','=',True)]]
 
+meals_count = OdooApi.execute_kw(database, uid, pwd, 'res.users.meal', 'search_count', filter2)
+
+print (meals_count) #will return all the record in that table
