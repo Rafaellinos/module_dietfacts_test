@@ -24,8 +24,27 @@ OdooApi = xmlrpclib.ServerProxy('%s/xmlrpc/2/object' % server)
 # var         | object | method   | base    |auth| pass  |model            | method
 #product_count = OdooApi.execute_kw(database, uid, pwd, 'product.template', 'search_count', filter)
 
-filter2 = [[('largemeal','=',True)]]
+#filter2 = [[('largemeal','=',True)]]
 
-meals_count = OdooApi.execute_kw(database, uid, pwd, 'res.users.meal', 'search_count', filter2)
+#meals_count = OdooApi.execute_kw(database, uid, pwd, 'res.users.meal', 'search_count', filter2)
 
-print (meals_count) #will return all the record in that table
+#print (meals_count) #will return all the record in that table
+
+filename= "importdata.csv"
+
+reader = csv.reader(open(filename, 'rb'))
+
+for row in reader: # for each row in csv file
+    #print row
+    productname = row[0] #Adding the two vars in csv
+    calories = row[1]
+
+    filter = [[('name', '=', productname)]] 
+    # use the filter to seach the product
+    product_id = OdooApi.execute_kw(database, uid, pwd, 'product.template', 'search', filter)
+    # if not exist, the record will be added on the data base
+    if not product_id:
+        record = [{'name': productname, 'calories': calories}]
+        OdooApi.execute_kw(database, uid, pwd, 'product.template', 'create', record)
+    else:
+        print ('The product '+ productname + ' already exists on the system!')
