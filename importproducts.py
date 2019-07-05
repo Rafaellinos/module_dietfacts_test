@@ -53,6 +53,7 @@ for row in reader: # for each row in csv file
         print ('Produt: '+ productname+ ' created!')
     elif product_id:
         record = {'calories': calories, 'categ_id': categ_id[0]}
+        # or can be: record = [product_id, {'calories': calories, 'categ_id': categ_id[0]}]
         OdooApi.execute_kw(database, uid, pwd, 'product.template', 'write', [product_id, record])
         print ('Produt: '+ productname + ' found and updated!')
         # identifies the ID(produt_id) and then, update it
