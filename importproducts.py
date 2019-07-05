@@ -51,7 +51,7 @@ for row in reader: # for each row in csv file
         record = [{'name': productname, 'calories': calories, 'categ_id': categ_id[0]}]
         OdooApi.execute_kw(database, uid, pwd, 'product.template', 'create', record)
         print ('Produt: '+ productname+ ' created!')
-    elif produt_id:
+    elif product_id:
         record = {'calories': calories, 'categ_id': categ_id[0]}
         OdooApi.execute_kw(database, uid, pwd, 'product.template', 'write', [product_id, record])
         print ('Produt: '+ productname + ' found and updated!')
