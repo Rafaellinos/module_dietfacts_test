@@ -34,6 +34,10 @@ filename= "importdata.csv"
 
 reader = csv.reader(open(filename, 'rb'))
 
+args = [[('name','=','Diet Items')]]
+
+categ_id = OdooApi.execute_kw(database, uid, pwd, 'product.category', 'search', args) #return list obj
+
 for row in reader: # for each row in csv file
     #print row
     productname = row[0] #Adding the two vars in csv
@@ -44,7 +48,13 @@ for row in reader: # for each row in csv file
     product_id = OdooApi.execute_kw(database, uid, pwd, 'product.template', 'search', filter)
     # if not exist, the record will be added on the data base
     if not product_id:
-        record = [{'name': productname, 'calories': calories}]
+        record = [{'name': productname, 'calories': calories, 'categ_id': categ_id[0]}]
         OdooApi.execute_kw(database, uid, pwd, 'product.template', 'create', record)
+        print ('Produt: '+ productname+ ' created!')
+    elif produt_id:
+        record = {'calories': calories, 'categ_id': categ_id[0]}
+        OdooApi.execute_kw(database, uid, pwd, 'product.template', 'write', [product_id, record])
+        print ('Produt: '+ productname + ' found and updated!')
+        # identifies the ID(produt_id) and then, update it
     else:
         print ('The product '+ productname + ' already exists on the system!')
